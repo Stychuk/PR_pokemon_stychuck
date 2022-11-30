@@ -64,14 +64,14 @@ const enemy = {
 }
 
 const btnCountJolt = countBtn(6, $btn);
-$btn.addEventListener('click', function() {
+$btn.addEventListener('click', () => {
     btnCountJolt();
     character.changeHP(random(20));
     //enemy.changeHP(random(20));
 });
 
 const btnElectroBall = countBtn(10, $btn2);
-$btn2.addEventListener('click', function() {
+$btn2.addEventListener('click', () => {
     btnElectroBall();
     //character.changeHP(random(20));
     enemy.changeHP(random(20));
@@ -80,8 +80,9 @@ $btn2.addEventListener('click', function() {
 function countBtn(count = 6, el) {
     const innerText = el.innerText;
     el.innerText = `${innerText} (${count})`;
-    return function() {
+    return () => {
         count--;
+        console.log(count);
         if(count === 0) {
             el.disabled = true;
         }
@@ -117,7 +118,7 @@ function changeHP(count) {
     this.hp.current -= count;
 
     const log = this === enemy ? generateLog(this, character, count) : generateLog(this, enemy, count);
-    console.log(log);
+    //console.log(log);
     if(this.hp.current <= 0) {
         this.hp.current = 0;
         alert('Бедный '+ this.name +' проиграл бой!');
