@@ -34,7 +34,7 @@ body {
     opacity: .4;
 }
 
-.control{
+.control {
     width: 320px;
     height: 260px;
     position: relative;
@@ -42,6 +42,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .playground {
@@ -276,7 +277,7 @@ body {
     outline: none !important;
     cursor: pointer;
     font-size: 18px;
-    margin-right: 10px;
+    margin-bottom: 15px;
 }
 .button:after {
     content: "";
@@ -471,4 +472,10 @@ h1 {
 
 .action label {
     padding: 6px 0;
+}
+
+#logs {
+  overflow: scroll;
+  overflow-x: hidden;
+  max-height: 200px;
 }
